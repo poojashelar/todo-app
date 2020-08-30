@@ -1,0 +1,13 @@
+    /* You can add global styles to this file, and also import other style files */
+    /*  @import '@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+    
+    @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+    /*@import '@angular/material/core/theming/_all-theme';
+      @include mat-core();
+     .dark-theme {
+        // Dark theme
+        $app-dark-primary: mat-palette($mat-pink, 700);
+        $app-dark-accent: mat-palette($mat-blue-grey);
+        $app-dark-theme: mat-dark-theme($app-dark-primary, $app-dark-accent);
+        @include angular-material-theme($app-dark-theme);
+    } */

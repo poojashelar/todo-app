@@ -1,0 +1,182 @@
+.todos {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    cursor: move;
+}
+
+.list-margin {
+    margin-right: 20px;
+}
+
+.mat-toolbar1.mat-primary1 {
+    background: black;
+    color: white;
+}
+
+.mat-icon-button1.mat-primary1 {
+    color: #9a2558;
+}
+
+.mat-mini-fab1.mat-primary1 {
+    background-color: #9a2558;
+}
+
+.mat-card1 {
+    background-color: #a9a9a969;
+}
+
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+}
+
+.example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+p {
+    margin: 10px auto;
+    max-width: 200px;
+    padding: 12px;
+    word-break: break-all;
+    display: inline-block;
+}
+
+.mat-icon-button {
+    float: right;
+}
+
+.modal-header {
+    background-color: blueviolet;
+    color: white;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+     :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+    }
+    html,
+    body {
+        height: 100% !important;
+        width: 360px !important;
+    }
+    .col-md-6 {
+        width: 50%;
+    }
+    .example-list {
+        width: 100%;
+        height: 100%;
+    }
+    mat-card.mat-card.taskCard {
+        margin-top: 10px;
+        width: 45%;
+        height: 50%;
+        margin-left: 20px;
+    }
+    .themeButton {
+        margin-left: 65%;
+    }
+    .buttonClass {
+        margin-left: 185px;
+        position: absolute;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 360px) {
+     :host {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        -webkit-overflow-scrolling: auto;
+    }
+    html,
+    body {
+        height: 100% !important;
+        width: 360px !important;
+        -webkit-overflow-scrolling: auto;
+    }
+    .col-md-6 {
+        width: 48%;
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
+    .example-list {
+        width: 100%;
+        height: 100%;
+    }
+    mat-card.mat-card.taskCard {
+        margin-top: 10px;
+        width: 100%;
+        height: 50%;
+        margin-left: -3px;
+    }
+    .themeButton {
+        margin-left: 20%;
+    }
+    .buttonClass {
+        margin-left: 165px;
+        position: absolute;
+    }
+}
+
+.mat-card {
+    border: 1px solid;
+}

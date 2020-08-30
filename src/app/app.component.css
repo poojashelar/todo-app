@@ -1,0 +1,29 @@
+.todoList {
+    width: 20%;
+}
+
+.list-margin {
+    margin-right: 20px;
+}
+
+.example-margin {
+    margin: 5%;
+}
+
+.mat-toolbar1.mat-primary1 {
+    background: black;
+    color: white;
+}
+
+.mat-mini-fab1.mat-primary1 {
+    background-color: #9a2558;
+}
+
+.mat-card1 {
+    background-color: #a9a9a969;
+}
+
+.modal-header {
+    background-color: blueviolet;
+    color: white;
+}

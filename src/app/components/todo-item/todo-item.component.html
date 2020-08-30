@@ -1,0 +1,85 @@
+<div class="box-list-horizontal" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropSide($event)">
+    <mat-card-content *ngFor="let todoList of todoTasks" class="todos" cdkDrag>
+        <div>
+            <mat-card class="todoList" [ngClass]="{'mat-card1' : checked}">
+                <div>
+                    <mat-toolbar color="primary" [ngClass]="{'mat-toolbar1
+                        mat-primary1' : checked}">
+                        {{todoList.title}}
+                        <button mat-mini-fab class="fab-add" name={{todoList.title}} (click)="todoDialog($event,
+                            mymodal)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <ng-template #mymodal let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Duplicate Name
+                                </h4>
+                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                List or Task with this name already exists!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn
+                                    btn-outline-dark" (click)="modal.close('Save
+                                    click')">Ok</button>
+                            </div>
+                        </ng-template>
+                        <button mat-mini-fab name={{todoList.title}} (click)="confirmationTodoDialog($event,todoList,
+                            -1)" color="primary" [ngClass]="{'mat-mini-fab1
+                            mat-primary1'
+                            : checked}">
+                            <mat-icon>delete_forever</mat-icon>
+                        </button>
+                        <button mat-mini-fab (click)="editTodoList($event,
+                            todoList)" color="primary" name={{todoList.title}} [ngClass]="{'mat-mini-fab1 mat-primary1' :
+                            checked}">
+                            <mat-icon>mode_edit</mat-icon>
+                        </button>
+                    </mat-toolbar>
+                    <mat-card-content>
+                        <div *ngIf="todoList.todo.length">
+                            <mat-list cdkDropList id="{{todoList.title}}" [cdkDropListData]="todoList.todo" [cdkDropListConnectedTo]="connectedList" (cdkDropListDropped)="drop($event)">
+                                <form class="mat-padding">
+                                    <mat-list-item *ngFor="let todo of
+                                        todoList.todo;
+                                        let index=index" class="list-item" cdkDrag>
+                                        <span class="border-bottom">
+                                            <p
+                                                [class.completed]="todo.completed">{{todo.title}}</p>
+                                            <button mat-icon-button
+                                                name={{todoList.title}}
+                                                (click)="confirmationTodoDialog($event,
+                                                todo, index)" color="primary">
+                                                <mat-icon
+                                                    [ngClass]="{'mat-icon-button1
+                                                    mat-primary1' : checked}">delete_forever</mat-icon>
+                                            </button>
+
+                                            <button mat-icon-button
+                                                (click)="todoDialog($event,null,
+                                                todo)"
+                                                color="primary"
+                                                name={{todoList.title}}
+                                                [disabled]="todo.completed">
+                                                <mat-icon
+                                                    [ngClass]="{'mat-icon-button1
+                                                    mat-primary1' : checked}">mode_edit</mat-icon>
+                                            </button>
+                                        </span>
+                                        <br>
+                                        <mat-divider></mat-divider>
+                                    </mat-list-item>
+                                </form>
+                            </mat-list>
+                        </div>
+                    </mat-card-content>
+                    <app-dialog [title]="headString" [template]="'Enter Task:'" [placeholder]="'What do you need to do?'" [okText]="okButtonText" [value]="fieldValue" (valueEmitted)="updateTodo($event)" [showPrompt]="showDialog" [checked]="checked" [deletingString]="deletingString">
+                    </app-dialog>
+                </div>
+            </mat-card>
+        </div>
+    </mat-card-content>
+</div>

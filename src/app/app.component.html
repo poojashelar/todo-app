@@ -1,0 +1,27 @@
+<mat-card class="todoapp" [ngClass]="{'mat-card1' : checked}">
+    <mat-toolbar color="primary" [ngClass]="{'mat-toolbar1 mat-primary1' : checked}">
+        Task Management App
+        <button mat-mini-fab class="fab-add" (click)="todoDialog(mymodal)">
+        <mat-icon>add</mat-icon>
+      </button>
+        <ng-template #mymodal let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Duplicate Name</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                List or Task with this name already exists!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+            </div>
+        </ng-template>
+        <mat-slide-toggle [(ngModel)]="checked" class="example-margin" [color]="color">
+            Theme
+        </mat-slide-toggle>
+    </mat-toolbar>
+    <app-todos [checked]="checked" [connectedList]="connectedList"></app-todos>
+    <app-dialog [title]="'Add New Todo List'" [template]="'Enter Task:'" [placeholder]="'What do you need to do?'" [okText]="okButtonText" [value]="fieldValue" (valueEmitted)="updateTodo($event)" [showPrompt]="showDialog" [checked]="checked">
+    </app-dialog>

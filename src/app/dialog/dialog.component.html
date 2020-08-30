@@ -1,0 +1,27 @@
+<div class="overlay" *ngIf="showPrompt">
+    <mat-card class="modalDialog">
+        <mat-toolbar color="primary" [ngClass]="{'mat-toolbar1 mat-primary1' : checked}">
+            {{title}}
+        </mat-toolbar>
+        <mat-card-content>
+            <form>
+                <div *ngIf="!deletingString else elseBlock">
+                    <br>{{template}}<br><br>
+                    <mat-input-container class="full-width">
+                        <input matInput id="todoName" name="todoName" class="form-control" [placeholder]="placeholder" [(ngModel)]="value" (keyup.enter)="emitValue(value)" (keyup.escape)="emitValue(null)" required>
+                    </mat-input-container> <br>
+                    <mat-error *ngIf="!value">
+                        Name is <strong>required</strong>
+                    </mat-error>
+                </div>
+                <ng-template #elseBlock>
+                    <br> {{value}}
+                </ng-template>
+            </form>
+        </mat-card-content>
+        <mat-card-actions class="center">
+            <button mat-button (click)="emitValue(null)" color="primary" [ngClass]="{'mat-raised-button1 mat-primary1' : checked}">{{cancelText}}</button>
+            <button mat-raised-button (click)="emitValue(value)" color="primary" [ngClass]="{'mat-raised-button1 mat-primary1' : checked}">{{okText}}</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
